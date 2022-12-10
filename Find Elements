@@ -1,0 +1,12 @@
+System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		
+		ChromeDriver driver = new ChromeDriver();
+			
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com/");
+		driver.findElement(By.name("q")).click();
+		Thread.sleep(2000);
+		List<WebElement> allsuggestions = driver.findElements(By.xpath("//li[@class='sbct' and not(@id='YMXe')]"));
+		
+		for(WebElement ele : allsuggestions) {
+			System.out.println(ele.getText());
